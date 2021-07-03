@@ -8,19 +8,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-    implements View.OnClickListener{
+        implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
-    private int currentScore;
+    private int currentScore; 
     private int changeScoreBy;
     private TextView scoreDD;
     private TextView scoreMI;
-    private TextView rdScoreGroup;
+    private RadioGroup rdScoreGroup;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         changeScoreBy = 1;
@@ -53,62 +53,36 @@ public class MainActivity extends AppCompatActivity
             Log.e("textViewError",  e.getStackTrace().toString());
         }
 
-//        RadioButton rdScore1 = findViewById(R.id.rdScore1);
-//        rdScore1.setOnClickListener(this);
-//
-//        RadioButton rdScore4 = findViewById(R.id.rdScore4);
-//        rdScore4.setOnClickListener(this);
-//
-//        RadioButton rdScore6 = findViewById(R.id.rdScore6);
-//        rdScore6.setOnClickListener(this);
-
-
-//        couldn't set the setOnClickChangedListeners due to some unknown error
-
-//        rdScoreGroup = findViewById(R.id.rdScoreGroup);
-//        try{
-//            rdScoreGroup.setOnCheckedChangeListener(this);
-//        }
-//        catch(Exception e){
-//            Log.e("RadioGroupError", e.getStackTrace().toString());
-//        }
+        rdScoreGroup = findViewById(R.id.rdScoreGroup);
+        try{
+            rdScoreGroup.setOnCheckedChangeListener(this);
+        }
+        catch(Exception e){
+            Log.e("RadioGroupError", e.getStackTrace().toString());
+        }
     }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+        switch(checkedId){
+            case R.id.rdScore1:
+                changeScoreBy = 1;
+                break;
+            case R.id.rdScore4:
+                changeScoreBy = 4;
+                break;
+            case R.id.rdScore6:
+                changeScoreBy = 6;
+                break;
+            default:
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
     public void onClick(View view){
-//        switch(view.getId()){
-//            case R.id.rdScore1:
-//                try {
-//                    changeScoreBy = 1;
-//                }
-//                catch(Exception e){
-//                    Log.e("Error", e.getMessage());
-//                    Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
-//                }
-//                break;
-//            case R.id.rdScore4:
-//                try {
-//                    changeScoreBy = 4;
-//                }
-//                catch(Exception e){
-//                    Log.e("Error", e.getMessage());
-//                    Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
-//                }
-//                break;
-//            case R.id.rdScore6:
-//                try {
-//                    changeScoreBy = 6;
-//                }
-//                catch(Exception e){
-//                    Log.e("Error", e.getMessage());
-//                    Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
-//                }
-//                break;
-//            default:
-//                Toast.makeText(this, "View not Implemented", Toast.LENGTH_SHORT).show();
-//                break;
-//        }
 
 //        switch statement to select the clicked button
-
 
         switch(view.getId()){
             case R.id.btnIncDD:
