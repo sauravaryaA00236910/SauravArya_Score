@@ -15,19 +15,22 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
 
-    private int currentScore; 
+//    initializing variables
+    private int currentScoreDD;
+    private int currentScoreMI;
     private int changeScoreBy;
     private TextView scoreDD;
     private TextView scoreMI;
-    private RadioGroup rdScoreGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        changeScoreBy = 1;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        assigning default value to changeScoreby variable
+        changeScoreBy = 1;
+
+//        accessing buttons through their id and setting onClick listners
         Button btnIncDD = findViewById(R.id.btnIncDD);
         btnIncDD.setOnClickListener(this);
 
@@ -46,15 +49,18 @@ public class MainActivity extends AppCompatActivity
         try{
             scoreDD.setOnClickListener(this);
             scoreMI.setOnClickListener(this);
-            scoreDD. setText(Integer.toString(currentScore));
-            scoreMI. setText(Integer.toString(currentScore));
+//            setting current score for the teams
+            scoreDD. setText(Integer.toString(currentScoreDD));
+            scoreMI. setText(Integer.toString(currentScoreMI));
         }
         catch(Exception e){
             Log.e("textViewError",  e.getStackTrace().toString());
         }
 
-        rdScoreGroup = findViewById(R.id.rdScoreGroup);
+//        accessing the radio group through the id
+        RadioGroup rdScoreGroup = findViewById(R.id.rdScoreGroup);
         try{
+//            setting onCheckedCahange listener to the radio group
             rdScoreGroup.setOnCheckedChangeListener(this);
         }
         catch(Exception e){
@@ -64,6 +70,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+
+//        setting different values to the changeScoreBy variable as per the radio button selected
+//        through switch statements
         switch(checkedId){
             case R.id.rdScore1:
                 changeScoreBy = 1;
@@ -75,70 +84,79 @@ public class MainActivity extends AppCompatActivity
                 changeScoreBy = 6;
                 break;
             default:
-                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Select the value to change score by", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
     public void onClick(View view){
 
-//        switch statement to select the clicked button
-
+//        increasing and decreasing the score as per the button clicked using switch stataements
         switch(view.getId()){
             case R.id.btnIncDD:
-
 //                incrementing team DD score
-                currentScore += changeScoreBy;
+                currentScoreDD += changeScoreBy;
                 try{
-                    scoreDD. setText(Integer.toString(currentScore));
+//                    setting the score to the current score
+                    scoreDD. setText(Integer.toString(currentScoreDD));
                 }
                 catch(Exception e){
                     Log.e("Error", e.getMessage());
                     Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.btnIncMI:
 //                incrementing team MI score
-                currentScore += changeScoreBy;
+                currentScoreMI += changeScoreBy;
                 try{
-                    scoreMI. setText(Integer.toString(currentScore));
+//                    setting the score as per the current score
+                    scoreMI. setText(Integer.toString(currentScoreMI));
                 }
                 catch(Exception e){
                     Log.e("Error", e.getMessage());
                     Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.btnDecDD:
 //                decrementing team DD score
-                currentScore -= changeScoreBy;
-                if(currentScore < 0){
-                    currentScore = 0;
+                currentScoreDD -= changeScoreBy;
+//                if statement to assign 0 to the current score if it gets negative for DD
+                if(currentScoreDD < 0){
+                    currentScoreDD = 0;
+                    Toast.makeText(this, "The score can't be negative", Toast.LENGTH_SHORT).show();
                 }
-                //                try and catch error to get the exception if occured
-                try{
-                    scoreDD. setText(Integer.toString(currentScore));
-                }
-                catch(Exception e){
-                    Log.e("Error", e.getMessage());
-                    Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case R.id.btnDecMI:
-//               decrementing team MI score
-                currentScore -= changeScoreBy;
-                if(currentScore < 0){
-                    currentScore = 0;
-                }
-
 //                try and catch error to get the exception if occured
                 try{
-                    scoreMI. setText(Integer.toString(currentScore));
+//                    setting the score to the current score
+                    scoreDD. setText(Integer.toString(currentScoreDD));
                 }
                 catch(Exception e){
                     Log.e("Error", e.getMessage());
                     Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
+            case R.id.btnDecMI:
+//               decrementing team MI score
+                currentScoreMI -= changeScoreBy;
+//                if statement to assign 0 to the current score if it gets negative for MI
+                if(currentScoreMI < 0){
+                    currentScoreMI = 0;
+                    Toast.makeText(this, "The score can't be negative", Toast.LENGTH_SHORT).show();
+                }
+//                try and catch error to get the exception if occured
+                try{
+//                    setting the score to the current score
+                    scoreMI. setText(Integer.toString(currentScoreMI));
+                }
+                catch(Exception e){
+                    Log.e("Error", e.getMessage());
+                    Toast.makeText(this, "Button doesn't work", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
             default:
                 Toast.makeText(this, "View not Implemented", Toast.LENGTH_SHORT).show();
                 break;

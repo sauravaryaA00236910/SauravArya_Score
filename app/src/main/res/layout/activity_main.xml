@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<!--    MI Score text value for representation-->
     <TextView
         android:id="@+id/scoreMI"
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnIncMI"
         app:layout_constraintTop_toBottomOf="@+id/btnIncMI" />
 
+<!--    team DD title text-->
     <TextView
         android:id="@+id/teamDDTv"
         android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.265" />
 
+<!--    team MI title text-->
     <TextView
         android:id="@+id/teamMITv"
         android:layout_width="wrap_content"
@@ -46,6 +49,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.266" />
 
+<!--    App title text-->
     <TextView
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
@@ -58,6 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    button to increase team DD score-->
     <Button
         android:id="@+id/btnIncDD"
         android:layout_width="wrap_content"
@@ -68,6 +73,7 @@
         app:layout_constraintStart_toStartOf="@+id/teamDDTv"
         app:layout_constraintTop_toBottomOf="@+id/teamDDTv" />
 
+<!--    button to decrease team DD score-->
     <Button
         android:id="@+id/btnDecDD"
         android:layout_width="wrap_content"
@@ -78,6 +84,7 @@
         app:layout_constraintEnd_toEndOf="@+id/scoreDD"
         app:layout_constraintStart_toStartOf="@+id/scoreDD" />
 
+<!--    button to increase team MI score-->
     <Button
         android:id="@+id/btnIncMI"
         android:layout_width="wrap_content"
@@ -88,6 +95,7 @@
         app:layout_constraintStart_toStartOf="@+id/teamMITv"
         app:layout_constraintTop_toBottomOf="@+id/teamMITv" />
 
+<!--    button to decrease team MI score-->
     <Button
         android:id="@+id/btnDecMI"
         android:layout_width="wrap_content"
@@ -98,6 +106,7 @@
         app:layout_constraintEnd_toEndOf="@+id/scoreMI"
         app:layout_constraintStart_toStartOf="@+id/scoreMI" />
 
+<!--    DD score text value for representation-->
     <TextView
         android:id="@+id/scoreDD"
         android:layout_width="wrap_content"
@@ -109,6 +118,7 @@
         app:layout_constraintStart_toStartOf="@+id/btnIncDD"
         app:layout_constraintTop_toBottomOf="@+id/btnIncDD" />
 
+<!--    radio button group containing radio buttons to select scoreChangeBy value-->
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,6 +129,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/rdScoreGroup">
 
+<!--        to select increase or decrease score by 1 run-->
         <RadioButton
             android:id="@+id/rdScore1"
             android:layout_width="wrap_content"
@@ -127,6 +138,7 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="577dp" />
 
+<!--        to select increase or decrease score by 4 runs-->
         <RadioButton
             android:id="@+id/rdScore4"
             android:layout_width="wrap_content"
@@ -135,6 +147,7 @@
             tools:layout_editor_absoluteX="147dp"
             tools:layout_editor_absoluteY="577dp" />
 
+<!--        to select increase or decrease score by 6 runs-->
         <RadioButton
             android:id="@+id/rdScore6"
             android:layout_width="wrap_content"
@@ -145,6 +158,7 @@
     </RadioGroup>
 
 
+<!--    title of change Score by section-->
     <TextView
         android:id="@+id/scoreTypeText"
         android:layout_width="wrap_content"
@@ -156,6 +170,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
+<!--    vertical guideline to help constraint on screen items-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -163,6 +178,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+<!--    horizontal guideleine to help constraint on scrren items-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
