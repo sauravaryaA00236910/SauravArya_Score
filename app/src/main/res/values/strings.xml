@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SauravArya_Score</string>
+    <string name="_0">0</string>
+    <string name="team_dd">Team DD</string>
+    <string name="team_mi">Team MI</string>
+    <string name="cricket_score_keeper">Cricket Score Keeper</string>
+    <string name="increase">Increase</string>
+    <string name="decrease">Decrease</string>
+    <string name="by_1_run">by 1 run</string>
+    <string name="by_4_run">by 4 run</string>
+    <string name="by_6_run">by 6 run</string>
+    <string name="change_score_by">Change Score By</string>
 </resources>

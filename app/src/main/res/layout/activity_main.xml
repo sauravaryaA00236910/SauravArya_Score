@@ -7,12 +7,166 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/scoreMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/_0"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDecMI"
+        app:layout_constraintEnd_toEndOf="@+id/btnIncMI"
+        app:layout_constraintStart_toStartOf="@+id/btnIncMI"
+        app:layout_constraintTop_toBottomOf="@+id/btnIncMI" />
+
+    <TextView
+        android:id="@+id/teamDDTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:background="#FEFFFF"
+        android:text="@string/team_dd"
+        android:textColor="#020202"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265" />
+
+    <TextView
+        android:id="@+id/teamMITv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="76dp"
+        android:text="@string/team_mi"
+        android:textColor="#020202"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266" />
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cricket_score_keeper"
+        android:textColor="#020202"
+        android:textSize="34sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnIncDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/increase"
+        app:layout_constraintEnd_toEndOf="@+id/teamDDTv"
+        app:layout_constraintStart_toStartOf="@+id/teamDDTv"
+        app:layout_constraintTop_toBottomOf="@+id/teamDDTv" />
+
+    <Button
+        android:id="@+id/btnDecDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/decrease"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="@+id/scoreDD"
+        app:layout_constraintStart_toStartOf="@+id/scoreDD" />
+
+    <Button
+        android:id="@+id/btnIncMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/increase"
+        app:layout_constraintEnd_toEndOf="@+id/teamMITv"
+        app:layout_constraintStart_toStartOf="@+id/teamMITv"
+        app:layout_constraintTop_toBottomOf="@+id/teamMITv" />
+
+    <Button
+        android:id="@+id/btnDecMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/decrease"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="@+id/scoreMI"
+        app:layout_constraintStart_toStartOf="@+id/scoreMI" />
+
+    <TextView
+        android:id="@+id/scoreDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_0"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDecDD"
+        app:layout_constraintEnd_toEndOf="@+id/btnIncDD"
+        app:layout_constraintStart_toStartOf="@+id/btnIncDD"
+        app:layout_constraintTop_toBottomOf="@+id/btnIncDD" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/rdScore1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_1_run"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="577dp" />
+
+        <RadioButton
+            android:id="@+id/rdScore4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_4_run"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="577dp" />
+
+        <RadioButton
+            android:id="@+id/rdScore6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/by_6_run"
+            tools:layout_editor_absoluteX="286dp"
+            tools:layout_editor_absoluteY="577dp" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/scoreTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/change_score_by"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="238dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
