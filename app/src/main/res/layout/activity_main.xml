@@ -136,7 +136,8 @@
             android:layout_height="wrap_content"
             android:text="@string/by_1_run"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="577dp" />
+            tools:layout_editor_absoluteY="577dp"
+            android:checked="true"/>
 
 <!--        to select increase or decrease score by 4 runs-->
         <RadioButton
